@@ -21,10 +21,7 @@ router.route('/')
     .get(function (req, res) {
         res.sendFile(path + '/public/file.html');
     }).post(upload,function(req, res){
-        /*fs.rename(req.files.userFile.path, path+'/storage'+req.files.userFile.fileName,function(err){
-            if(err) console.error(err);
-        });*/
-         res.send("ok");
+        res.send(JSON.stringify({size: req.file.size}));
         console.log(req.file);
        
     });
